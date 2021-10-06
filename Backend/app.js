@@ -19,3 +19,5 @@ app.use((req, res, next) => {
   });
 
 app.use(bodyParser.json());
+
+module.exports = app;
