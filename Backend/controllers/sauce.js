@@ -63,7 +63,7 @@ exports.likeSauce = (req, res, next) => {
       break;
 
     case 0 :
-        Sauce.findOne({ _id: sauceId })
+        Sauce.findOne({ _id: req.params.id })
            .then((sauce) => {
             if (sauce.usersLiked.includes(req.body.userId)) { 
               Sauce.updateOne({ _id: req.params.id }, { $pull: { usersLiked: req.body.userId }, $inc: { likes: -1 }})
